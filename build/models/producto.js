@@ -4,7 +4,7 @@ const mongoose_1 = require("mongoose");
 let productoShema = new mongoose_1.Schema({
     nombre: {
         type: String,
-        required: [true, 'Nombre es Obligatorio']
+        required: [true, 'Nombre es Obligatoriio']
     },
     precioUni: {
         type: Number,

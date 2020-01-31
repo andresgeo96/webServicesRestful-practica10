@@ -12,6 +12,7 @@ const cors_1 = __importDefault(require("cors"));
 //IMPORTAMOS A LAS RUTAS DEL SERVIDOR 
 const producto_1 = __importDefault(require("./routes/producto"));
 const categorias_1 = __importDefault(require("./routes/categorias"));
+const usuario_1 = __importDefault(require("./routes/usuario"));
 //CLASE
 class Server {
     constructor() {
@@ -22,7 +23,7 @@ class Server {
     }
     config() {
         //INICIALIZAR EL PUERTO EXPRESS
-        this.app.set('port', process.env.PORT || 3000);
+        this.app.set('port', process.env.PORT || 3001);
         // VER LAS RUTAS QUE SE ESTAN SOLICITANDO 
         this.app.use(morgan_1.default('dev'));
         // COMPRESIÓN DE LAS RESPUESTAS
@@ -42,11 +43,12 @@ class Server {
     routes() {
         this.app.use('/api/producto', producto_1.default);
         this.app.use('/api/categoria', categorias_1.default);
+        this.app.use('/api/usuario', usuario_1.default);
     }
     start() {
         //INICIALIZAR EL SERVIDOR EXPRESS
         this.app.listen(this.app.get('port'), () => {
-            console.log("SERVIDOR FUNCIONANDO EN EL PUERTO 3000 OK");
+            console.log("SERVIDOR FUNCIONANDO EN EL PUERTO 3001 OK");
         });
     }
 }

@@ -8,8 +8,7 @@ import cors from 'cors';
 //IMPORTAMOS A LAS RUTAS DEL SERVIDOR 
 import producto from './routes/producto';
 import categorias from './routes/categorias';
-
-import categoria from './models/categoria';
+import usuario  from './routes/usuario';
 
 //CLASE
 class Server {
@@ -24,7 +23,7 @@ class Server {
 
     config() {
            //INICIALIZAR EL PUERTO EXPRESS
-           this.app.set('port', process.env.PORT || 3000);
+           this.app.set('port', process.env.PORT || 3001);
            // VER LAS RUTAS QUE SE ESTAN SOLICITANDO 
            this.app.use(morgan('dev'));
            // COMPRESIÓN DE LAS RESPUESTAS
@@ -45,6 +44,8 @@ class Server {
     routes() {
         this.app.use('/api/producto', producto);
         this.app.use('/api/categoria', categorias);
+        this.app.use('/api/usuario', usuario);
+        
     }
 
     start() {
@@ -52,7 +53,7 @@ class Server {
 
         //INICIALIZAR EL SERVIDOR EXPRESS
         this.app.listen(this.app.get('port'), () => {
-            console.log("SERVIDOR FUNCIONANDO EN EL PUERTO 3000 OK")
+            console.log("SERVIDOR FUNCIONANDO EN EL PUERTO 3001 OK")
         });
     }
 }

@@ -5,7 +5,7 @@ import {Schema, model} from  'mongoose';
 let productoShema = new Schema({
     nombre:{
         type:String,
-        required:[true,'Nombre es Obligatorio']
+        required:[true,'Nombre es Obligatoriio']
     },
     precioUni:{
         type:Number,
